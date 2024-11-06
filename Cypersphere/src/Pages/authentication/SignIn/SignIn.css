@@ -1,0 +1,19 @@
+.signin-container{
+    height: 100vh;
+}
+
+
+.authImg{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    bottom: 0px;
+    top: 0px;
+    object-fit: cover;
+    z-index: -99;
+}
+.authImg-container{
+    position: relative;
+}
