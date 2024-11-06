@@ -1,12 +1,13 @@
 import React from 'react'
 
 import './SignupForm.css'
+import { Link } from 'react-router-dom';
 
 function SignupForm() {
   return (
     <div className='signup-form-container'>
       <div>Create an account</div>
-      <div>Already have an ccount? <span>Log in </span> </div>
+      <div>Already have an ccount? <Link to={'/signin'}>Log in </Link> </div>
       <form>
         <div className='row m-0'>
           <div className='d-flex col-6 flex-column'>

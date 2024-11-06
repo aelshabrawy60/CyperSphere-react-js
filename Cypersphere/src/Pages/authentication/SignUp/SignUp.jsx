@@ -25,7 +25,7 @@ function SignUp() {
               </div>
           </div>
           <div className='col-md-6 col-12'>
-              {currentPage == 0 ? <SignupMain/>: <CreatAcc/>}
+              {currentPage == 0 ? <SignupMain setPage={setCurrentPage}/>: <CreatAcc/>}
           </div>
         </div>
     </div>

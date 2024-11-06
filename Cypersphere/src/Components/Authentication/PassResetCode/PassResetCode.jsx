@@ -2,11 +2,11 @@ import React from 'react'
 
 import './PassResetCode.css'
 
-function PassResetCode() {
+function PassResetCode({setPage}) {
   return (
     <div className='pass-reset-code-container'>
       <div>
-        <button>back button</button>
+        <button onClick={()=>setPage(0)}>back button</button>
       </div>
       <div className='logo_container'>
           <div className='img.png'></div>

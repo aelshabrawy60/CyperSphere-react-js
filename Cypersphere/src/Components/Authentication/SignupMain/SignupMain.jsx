@@ -2,8 +2,9 @@ import React from 'react'
 
 import './SignupMain.css'
 import ThirdPartyAuth from '../ThirdPartyAuth/ThirdPartYAuth'
+import { Link } from 'react-router-dom';
 
-function SignupMain() {
+function SignupMain({setPage}) {
   return (
     <div className='signup-main-container'>
         <div>
@@ -15,11 +16,11 @@ function SignupMain() {
         <ThirdPartyAuth/>
         <div className='line__seprator'></div>
         <div>
-          <button>Create new account</button>
+          <button onClick={()=>setPage(1)}>Create new account</button>
           <div>By signing up, you agree to the Terms of Service and Privacy Policy, including cookie use.</div>
         </div>
         <div>
-          Don’t have an acount? <span>Sign In</span>  
+          Already have an acount? <Link to={'/signin'}>Sign In</Link>  
         </div>
     </div>
   )

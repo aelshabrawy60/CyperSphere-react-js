@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-import './PassResetNew.css'
+import './PassResetNew.css';
+import { BiSolidHide } from "react-icons/bi";
 
-function PassResetNew() {
+function PassResetNew({setPage}) {
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const toggleNewPasswordVisibility = () => {
+    setShowNewPassword(!showNewPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
   return (
     <div className='pass-reset-new'>
       <div>
-        <button>back button</button>
+        <button onClick={()=> setPage(1)}>Back button</button>
       </div>
       <div className='logo_container'>
-          <div className='img.png'></div>
+        <div className='img.png'></div>
       </div>
       <div>
         <div>
@@ -21,29 +33,43 @@ function PassResetNew() {
             <div className='d-flex justify-content-between'>
               <label>New password</label>
               <div>
-                icon
-                Hide
+                <button
+                  type="button"
+                  onClick={toggleNewPasswordVisibility}
+                  className="password-toggle-button"
+                >
+                  <BiSolidHide /> <span>{showNewPassword ? "Hide" : "Show"}</span>
+                </button>
               </div>
             </div>
-            <input />
+            <input
+              type={showNewPassword ? "text" : "password"}
+            />
           </div>
           <div className='d-flex flex-column'>
             <div className='d-flex justify-content-between'>
               <label>Confirm password</label>
               <div>
-                icon
-                Hide
+                <button
+                  type="button"
+                  onClick={toggleConfirmPasswordVisibility}
+                  className="password-toggle-button"
+                >
+                  <BiSolidHide /> <span>{showConfirmPassword ? "Hide" : "Show"}</span>
+                </button>
               </div>
             </div>
-            <input />
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+            />
           </div>
           <div>
-            <button>Save</button>
+            <button type="submit">Save</button>
           </div>
         </form>
       </div>
     </div>
-  )
+  );
 }
 
-export default PassResetNew
+export default PassResetNew;

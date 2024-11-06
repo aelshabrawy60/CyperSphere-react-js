@@ -1,12 +1,12 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 import './PassResetAuth.css'
 
 function PassResetAuth() {
   return (
     <div className='pass-reset-auth-container'>
       <div>
-        <button>back button</button>
+        <Link to={'/signin'}><button>back button</button></Link>
       </div>
       <div className='logo_container'>
           <div className='img.png'></div>
