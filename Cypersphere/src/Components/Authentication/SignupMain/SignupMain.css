@@ -1,0 +1,13 @@
+.sign-up-main__header{
+    font-size: 38px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.sign-up-main__subtitle{
+    font-size: 16px;
+    color: #666666;
+}
+.signup-main-container{
+    max-width: 480px;
+}

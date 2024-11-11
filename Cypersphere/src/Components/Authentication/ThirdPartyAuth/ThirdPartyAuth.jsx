@@ -6,12 +6,12 @@ import { FaFacebook } from "react-icons/fa";
 
 function ThirdPartyAuth() {
   return (
-    <div className='thid-party-auth-container'>
-        <div className='google-auth d-flex gap-3 align-items-center'>
+    <div className='thid-party-auth-container d-flex flex-column gap-3'>
+        <div className='google-auth thrid-party-agent justify-content-center d-flex gap-3 align-items-center'>
             <FcGoogle />
             <div>Continue with Google</div>
         </div>
-        <div className='facebook-auth d-flex gap-3 align-items-center'>
+        <div className='facebook-auth thrid-party-agent justify-content-center d-flex gap-3 align-items-center'>
             <FaFacebook />
             <div>Continue with Facebook</div>
         </div>

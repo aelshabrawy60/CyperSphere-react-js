@@ -1,10 +1,13 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
 import './LandingPage.css'
 
 function LandingPage() {
   return (
-    <div>LandingPage</div>
+    <div>
+      <Link to="signin">Signin</Link>
+    </div>
   )
 }
 

@@ -8,7 +8,9 @@ function CreatAcc() {
   return (
     <div className='creat-acc-contianer'>
       <SignupForm/>
-      <div className='line__seprator'></div>
+      <div className='line__seprator mb-4 mt-4'>
+          <div></div>OR<div></div>
+      </div>
       <ThirdPartyAuth/>
     </div>
   )

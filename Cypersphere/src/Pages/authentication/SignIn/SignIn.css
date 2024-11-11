@@ -16,4 +16,22 @@
 }
 .authImg-container{
     position: relative;
+    color: white;
+}
+
+.auth__logo{
+    font-weight: bold;
+    font-size: 56px;
+    font-family: "Montagu Slab", serif;
+}
+
+.authImg__desc--header{
+    font-size: 40px;
+    font-weight: bold;
+}
+.authImg__desc p{
+    font-size: 18px;
+}
+.authImg__text{
+    max-width: 500px;
 }
