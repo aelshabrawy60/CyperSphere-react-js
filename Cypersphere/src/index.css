@@ -1,3 +1,7 @@
+:root{
+    --main-color: #2A69B5;
+}
+
 body{
     font-family: "Poppins", serif;
 }
@@ -64,4 +68,10 @@ a{
     justify-content: center;
     align-items: center;
     padding: 7px;
+}
+
+.auth-routes-container{
+    background-color: #18181B;
+    height: 100vh;
+    color: white;
 }

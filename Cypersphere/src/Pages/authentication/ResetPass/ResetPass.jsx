@@ -7,7 +7,7 @@ import PassResetNew from '../../../Components/Authentication/PassResetNew/PassRe
 
 function ResetPass() {
 
-  const [currentPage, setCurrentPage] = useState(2)
+  const [currentPage, setCurrentPage] = useState(0)
 
   const pages = [<PassResetAuth />, <PassResetCode setPage={setCurrentPage}/>, <PassResetNew setPage={setCurrentPage}/>]
 

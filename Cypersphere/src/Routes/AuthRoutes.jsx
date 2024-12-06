@@ -9,20 +9,32 @@ import Resources from '../Pages/Platform/Academy/Resource/Resources';
 import Tools from '../Pages/Platform/Academy/Tools/Tools';
 import CTF from '../Pages/Platform/CTF/CTF';
 import Jobs from '../Pages/Platform/Jobs/Jobs';
+import Chatbot from '../Pages/Platform/Chatbot/Chatbot';
+import Sidebar from '../Components/Platform/Sidebar/Sidebar';
+import TopBar from '../Components/Platform/TopBar/TopBar';
 
 function AuthRoutes() {
   return (
-    <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/Companies" element={<Companies />} />
-        <Route path="/learning-path" element={<LearningPath />} />
-        <Route path="/platforms" element={<Platforms />} />
-        <Route path="/resources" element={<Resources />} />
-        <Route path="/tools" element={<Tools />} />
-        <Route path="/ctf" element={<CTF />} />
-        <Route path="/jobs" element={<Jobs />} />
-    </Routes>
+    <div className='auth-routes-container d-flex postion-relative'>
+      <Sidebar />
+      <div className='auth-routes-content' style={{ flex: 1, transition: 'margin 0.3s ease-in-out' }}>
+        {window.location.pathname !== '/chatbot' && <TopBar />}
+        <div className='routes-content'>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/companies" element={<Companies />} />
+            <Route path="/learning-path" element={<LearningPath />} />
+            <Route path="/platforms" element={<Platforms />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/tools" element={<Tools />} />
+            <Route path="/ctf" element={<CTF />} />
+            <Route path="/jobs" element={<Jobs />} />
+            <Route path="/chatbot" element={<Chatbot />} />
+          </Routes>
+        </div>
+      </div>
+    </div>
   );
 }
 

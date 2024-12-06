@@ -1,0 +1,66 @@
+.topbar {
+  background-color: #1D1D1F;
+  border-radius: 10px;
+}
+
+.greeting {
+  color: #666;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.user-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  color: white;
+}
+
+.topbar-center {
+  flex: 2;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #242424;
+  border-radius: 6px;
+}
+
+.search-icon {
+  color: #666;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.search-input {
+  background: none;
+  border: none;
+  width: 100%;
+  outline: none;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+.date-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: white;
+}
+
+.day {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.2rem;
+}

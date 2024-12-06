@@ -6,7 +6,7 @@ import GuestRoutes from './Routes/GuestRoutes';
 import AuthRoutes from './Routes/AuthRoutes';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
 
   return (
