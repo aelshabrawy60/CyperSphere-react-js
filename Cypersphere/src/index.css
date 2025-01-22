@@ -4,6 +4,8 @@
 
 body{
     font-family: "Poppins", serif;
+    background-color: #18181B;
+    color: white;
 }
 
 input{
@@ -70,8 +72,56 @@ a{
     padding: 7px;
 }
 
-.auth-routes-container{
+select{
+    background: none;
+    border: 1px solid var(--main-color);
+    padding: 10px 20px;
+    color: white;
+    min-width: 250px;
+    margin-right: 20px;
+}
+
+select:focus-within{
+    outline: none;
+}
+
+option{
     background-color: #18181B;
-    height: 100vh;
     color: white;
 }
+
+.main-btn{
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.gradient-btn{
+    background: linear-gradient(90deg, rgb(40, 97, 167) 0%, rgb(31, 45, 113) 100%);
+}
+
+.main-input{
+    background: none;
+    color: white;
+    border: 1px solid #2a69b56c;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+.nav-tabs .nav-link {
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+  
+  .nav-tabs .nav-link.active {
+    font-weight: bold;
+  }

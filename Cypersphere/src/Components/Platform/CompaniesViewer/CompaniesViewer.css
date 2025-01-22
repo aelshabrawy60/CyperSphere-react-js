@@ -1,0 +1,11 @@
+.companies-viewer-container{
+    background-color: #1D1D1F;
+    border-radius: 10px;
+}
+
+.viewer-container{
+    overflow-y: auto;
+}
+.viewer-container::-webkit-scrollbar{
+    display: none;
+}

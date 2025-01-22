@@ -1,0 +1,15 @@
+.radio-tab{
+    background-color: #1D1D1F;
+    color: white;
+    padding: 7px 20px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border-radius: 5px;
+    border: 1px solid #333333;
+    min-width: 100px;
+    text-align: center;
+}
+
+.radio-tab.active{
+    background: linear-gradient(90deg, rgb(40, 97, 167) 0%, rgb(31, 45, 113) 100%);
+}
