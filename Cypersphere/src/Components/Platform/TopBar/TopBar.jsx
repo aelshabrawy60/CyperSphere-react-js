@@ -1,6 +1,5 @@
 import React from 'react';
-import './TopBar.css';
-import { FiSearch } from 'react-icons/fi';
+import { Search, Bell, Sun } from 'lucide-react';
 
 const TopBar = () => {
   const getCurrentDate = () => {
@@ -16,26 +15,58 @@ const TopBar = () => {
     return new Date().toLocaleDateString('en-US', { weekday: 'long' });
   };
 
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good morning';
+    if (hour < 18) return 'Good afternoon';
+    return 'Good evening';
+  };
+
   return (
-    <div className="topbar m-3 p-3 px-2 px-md-4 row m-0 align-items-center">
-      <div className="topbar-left d-lg-block d-none col-3 col-xl-2">
-        <p className="greeting mb-1">Good morning,</p>
-        <h2 className="user-name">Ahmed</h2>
-      </div>
-      <div className="topbar-center col">
-        <div className="search-container ps-3 py-1 w-100">
-          <FiSearch className="search-icon" />
-          <input 
-            type="text" 
-            placeholder="Search" 
-            className="search-input"
-          />
-        </div>
-      </div>
-      <div className="topbar-right d-lg-block d-none col-3 col-xl-2">
-        <div className="date-info">
-          <span className="date">{getCurrentDate()}</span>
-          <span className="day">{getCurrentDay()}</span>
+    <div className="bg-[#1D1D1F] border-b lg:border-0 lg:m-4 lg:rounded-2xl border-gray-800">
+      <div className="max-w-7xl mx-auto">
+        <div className="px-8 py-4 lg:py-5 flex justify-between items-center gap-4">
+          {/* Left Section */}
+          <div className="hidden lg:block">
+            <p className="text-gray-400 text-sm mb-0.5">{getGreeting()},</p>
+            <h2 className="text-white text-xl font-semibold">Ahmed</h2>
+          </div>
+
+          {/* Search Section */}
+          <div className="flex-1 max-w-2xl">
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-gray-400 group-focus-within:text-blue-400" />
+              </div>
+              <input 
+                type="text" 
+                placeholder="Search anything..." 
+                className="w-full py-2.5 pl-10 pr-4 rounded-xl bg-[#242424] 
+                         text-gray-100 placeholder-gray-400
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                         transition-all duration-200"
+              />
+            </div>
+          </div>
+
+          {/* Right Section */}
+          <div className="flex items-center gap-4">
+            {/* Notification Button */}
+            <button className="p-2 rounded-lg hover:bg-gray-800 transition-colors duration-200">
+              <Bell className="h-5 w-5 text-gray-400 hover:text-gray-300" />
+            </button>
+            
+            {/* Theme Toggle */}
+            <button className="p-2 rounded-lg hover:bg-gray-800 transition-colors duration-200">
+              <Sun className="h-5 w-5 text-gray-400 hover:text-gray-300" />
+            </button>
+
+            {/* Date Display */}
+            <div className="hidden lg:flex flex-col items-end">
+              <span className="text-gray-200 text-sm font-medium">{getCurrentDate()}</span>
+              <span className="text-gray-400 text-sm">{getCurrentDay()}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
