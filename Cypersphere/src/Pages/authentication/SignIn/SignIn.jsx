@@ -2,7 +2,7 @@ import React from 'react'
 
 import './SignIn.css'
 import SigninForm from '../../../Components/Authentication/SigninForm/SigninForm'
-import ThirdPartyAuth from '../../../Components/Authentication/ThirdPartyAuth/ThirdPartYAuth'
+import ThirdPartyAuth from '../../../Components/Authentication/ThirdPartyAuth/ThirdPartyAuth.jsx'
 
 function SignIn() {
   return (
