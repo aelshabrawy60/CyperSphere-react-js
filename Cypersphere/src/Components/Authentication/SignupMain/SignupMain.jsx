@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './SignupMain.css'
-import ThirdPartyAuth from '../ThirdPartyAuth/ThirdPartYAuth'
+import ThirdPartyAuth from '../ThirdPartyAuth/ThirdPartyAuth.jsx'
 import { Link } from 'react-router-dom';
 
 function SignupMain({setPage}) {
