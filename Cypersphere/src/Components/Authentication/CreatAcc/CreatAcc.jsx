@@ -2,7 +2,7 @@ import React from 'react'
 
 import './CreatAcc.css'
 import SignupForm from '../SignupForm/SignupForm'
-import ThirdPartyAuth from '../ThirdPartyAuth/ThirdPartYAuth'
+import ThirdPartyAuth from '../ThirdPartyAuth/ThirdPartyAuth.jsx'
 
 function CreatAcc() {
   return (
