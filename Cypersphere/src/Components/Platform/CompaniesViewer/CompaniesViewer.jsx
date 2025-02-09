@@ -1,53 +1,16 @@
 import React from 'react'
-import './CompaniesViewer.css'
 import Company from '../Company/Company'
+import companiesData from '../../../data/egyptianCyberCompanies.json'
 
-const companies = [
-    {
-        name: "google",
-        location: "Cairo, Egypt",
-        logo: "https://pngimg.com/d/google_PNG19635.png",
-        link: ""
-    },
-    {
-        name: "google",
-        location: "Cairo, Egypt",
-        logo: "https://pngimg.com/d/google_PNG19635.png",
-        link: ""
-    },
-    {
-        name: "google",
-        location: "Cairo, Egypt",
-        logo: "https://pngimg.com/d/google_PNG19635.png",
-        link: ""
-    },
-    {
-        name: "google",
-        location: "Cairo, Egypt",
-        logo: "https://pngimg.com/d/google_PNG19635.png",
-        link: ""
-    },
-    {
-        name: "google",
-        location: "Cairo, Egypt",
-        logo: "https://pngimg.com/d/google_PNG19635.png",
-        link: ""
-    },
-    {
-        name: "google",
-        location: "Cairo, Egypt",
-        logo: "https://pngimg.com/d/google_PNG19635.png",
-        link: ""
-    },
-]
+const companies = companiesData.companies
 
 function CompaniesViewer() {
   return (
-    <div className='companies-viewer-container p-3'>
-        <div className='companies-viewer-header px-1 mb-2 d-flex flex-column flex-md-row gap-4 align-items-md-center justify-content-md-between'>
-            <h5 className='companies-viewer-header--title fw-bold'>Companies</h5>
+    <div className='bg-[#1D1D1F] rounded-[10px] p-3'>
+        <div className='px-1 mb-2 flex flex-col md:flex-row gap-4 md:items-center md:justify-between'>
+            <h5 className='font-bold'>Companies</h5>
         </div>
-        <div className='d-flex flex-column gap-3 viewer-container'>
+        <div className='flex flex-col gap-3 overflow-y-auto scrollbar-hide'>
             {companies.map((company, index) => (
                 <Company key={index} {...company} />
             ))}

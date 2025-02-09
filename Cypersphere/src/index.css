@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root{
     --main-color: #2A69B5;
 }
@@ -115,13 +119,11 @@ a{
     text-decoration: none;
 }
 
-
-
 .nav-tabs .nav-link {
     cursor: pointer;
     padding: 10px 20px;
-  }
+}
   
-  .nav-tabs .nav-link.active {
+.nav-tabs .nav-link.active {
     font-weight: bold;
-  }
+}

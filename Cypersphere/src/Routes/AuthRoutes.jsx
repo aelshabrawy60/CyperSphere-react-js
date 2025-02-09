@@ -14,6 +14,7 @@ import Sidebar from '../Components/Platform/Sidebar/Sidebar';
 import TopBar from '../Components/Platform/TopBar/TopBar';
 import { useLocation } from 'react-router-dom';
 import Settings from '../Pages/Platform/Settings/Settings';
+import Profile from '../Pages/Platform/Profile/Profile';
 
 function AuthRoutes() {
   const location = useLocation();
@@ -22,20 +23,21 @@ function AuthRoutes() {
     <div className='auth-routes-container d-flex postion-relative'>
       <Sidebar />
       <div className='auth-routes-content' style={{ flex: 1, transition: 'margin 0.3s ease-in-out' }}>
-        {location.pathname !== '/chatbot' && location.pathname !== '/settings' && location.pathname !== '/jobs' && <TopBar />}
+        {location.pathname == "/" && <TopBar />}
         <div className='routes-content'>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/academy/blog" element={<Blog />} />
             <Route path="/companies" element={<Companies />} />
             <Route path="/learning-path" element={<LearningPath />} />
             <Route path="/platforms" element={<Platforms />} />
             <Route path="/resources" element={<Resources />} />
-            <Route path="/tools" element={<Tools />} />
+            <Route path="/academy/tools" element={<Tools />} />
             <Route path="/ctf" element={<CTF />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/chatbot" element={<Chatbot />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
       </div>

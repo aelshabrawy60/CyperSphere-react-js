@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import './JobsViewer.css'
 import Job from '../Job/Job'
 
 function JobsViewer() {
@@ -35,25 +34,23 @@ function JobsViewer() {
 
   if (isLoading) {
     return (
-      <div className='jobs-viewer-container p-3'>
-        <div className='jobs-viewer-header px-1 mb-2'>
-          <h5 className='jobs-viewer-header--title fw-bold'>Jobs</h5>
+      <div className='bg-[#1D1D1F] rounded-lg p-3'>
+        <div className='px-1 mb-2'>
+          <h5 className='font-bold'>Jobs</h5>
         </div>
-        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '200px' }}>
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
+        <div className="flex justify-center items-center min-h-[200px]">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
         </div>
       </div>
     )
   }
 
   return (
-    <div className='jobs-viewer-container p-3'>
-      <div className='jobs-viewer-header px-1 mb-2 d-flex flex-column flex-md-row gap-4 align-items-md-center justify-content-md-between'>
-        <h5 className='jobs-viewer-header--title fw-bold'>Jobs</h5>
+    <div className='bg-[#1D1D1F] rounded-lg p-3'>
+      <div className='px-1 mb-2 flex flex-col md:flex-row gap-4 md:items-center md:justify-between'>
+        <h5 className='font-bold'>Jobs</h5>
       </div>
-      <div className='viewer-container d-flex flex-column gap-3'>
+      <div className='flex flex-col gap-3'>
         {jobs.map((job, index) => (
           <Job 
             key={index} 

@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import { FaUserEdit } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { MdLocalPhone } from "react-icons/md";
-import { FaUser } from "react-icons/fa";
+import { FaUserEdit, FaUser } from "react-icons/fa";
+import { MdEmail, MdLocalPhone } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 
 function AccountSet() {
@@ -10,45 +8,82 @@ function AccountSet() {
   const [name, setName] = useState('user profile');
   const [userName, setUserName] = useState('@user32');
   const [phone, setPhone] = useState('01019345623');
-  const [profilePhoto, setProfilePhoto] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
 
+  const InputField = ({ icon: Icon, label, type, value, onChange }) => (
+    <div>
+      <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 flex items-center gap-2">
+        <Icon className="text-gray-500" /> {label}
+      </label>
+      <input
+        type={type}
+        value={value}
+        onChange={onChange}
+        className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-900 dark:text-white transition-colors duration-200"
+      />
+    </div>
+  );
 
   return (
-    <div className='row m-0 p-3 row-gap-4'>
-      <div className='col-lg-6 pe-xl-5'>
-        <div className='fw-bold mb-4'>Personal Information</div>
-        <div className='row m-0 row-gap-4'>
-          <div className='col-md-6 ps-md-0 ps-0'>
-            <div className='mb-2 d-flex align-items-center gap-2'><FaUserEdit /> Name</div>
-            <input className='main-input' type="text" value={name} onChange={(e) => setName(e.target.value)} />
-          </div>
-          <div className='col-md-6 pe-md-0 ps-0'>
-            <div className='mb-2 d-flex align-items-center gap-2'><FaUser /> Username</div>
-            <input className='main-input' type="text" value={userName} onChange={(e) => setUserName(e.target.value)} />
-          </div>
-          <div className='col-md-6 ps-md-0 ps-0'>
-            <div className='mb-2 d-flex align-items-center gap-2'><MdEmail /> Email</div>
-            <input className='main-input' type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-          </div>
-          <div className='col-md-6 pe-md-0 ps-0'>
-            <div className='mb-2 d-flex align-items-center gap-2'><MdLocalPhone /> Phone</div>
-            <input className='main-input' type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
-          </div>
+    <div className="space-y-8">
+      {/* Personal Information */}
+      <div>
+        <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white mb-6">
+          Personal Information
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <InputField
+            icon={FaUserEdit}
+            label="Name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <InputField
+            icon={FaUser}
+            label="Username"
+            type="text"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+          <InputField
+            icon={MdEmail}
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <InputField
+            icon={MdLocalPhone}
+            label="Phone"
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
         </div>
       </div>
-      <div className='col-lg-6 ps-xl-5'>
-        <div className='fw-bold mb-4'>Change Password</div>
-        <div className='row m-0 row-gap-4'>
-          <div className='col-12 ps-0'>
-            <div className='mb-2 d-flex align-items-center gap-2'><RiLockPasswordFill /> Current Password</div>
-            <input className='main-input' type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} />
-          </div>
-          <div className='col-12 ps-0'>
-            <div className='mb-2 d-flex align-items-center gap-2'><RiLockPasswordFill /> New Password</div>
-            <input className='main-input' type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-          </div>
+
+      {/* Change Password */}
+      <div>
+        <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white mb-6">
+          Change Password
+        </h3>
+        <div className="space-y-6 max-w-md">
+          <InputField
+            icon={RiLockPasswordFill}
+            label="Current Password"
+            type="password"
+            value={currentPassword}
+            onChange={(e) => setCurrentPassword(e.target.value)}
+          />
+          <InputField
+            icon={RiLockPasswordFill}
+            label="New Password"
+            type="password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
         </div>
       </div>
     </div>

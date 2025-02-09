@@ -1,0 +1,334 @@
+{
+  "companies": [
+    {
+      "name": "Cysiv",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/cysivmea/"
+      }
+    },
+    {
+      "name": "CyberCastle",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/cyber-castle/",
+        "facebook": "https://www.facebook.com/CyberCastle"
+      }
+    },
+    {
+      "name": "SecurityMeter",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/security-meter/",
+        "facebook": ["https://www.facebook.com/securmeter", "https://www.facebook.com/Security-Meter-Academy-107681121922443"]
+      }
+    },
+    {
+      "name": "EG-CERT",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/ntraeg/",
+        "facebook": "https://www.facebook.com/EG-CERT-548806185193151",
+        "twitter": "https://twitter.com/EG_CERT"
+      }
+    },
+    {
+      "name": "Cybertalents",
+      "location": "Cairo, Egypt", 
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/cybertalent/",
+        "facebook": "https://www.facebook.com/cybertalentsofficial/"
+      }
+    },
+    {
+      "name": "RedForce",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/redforcesec/",
+        "facebook": "https://www.facebook.com/redforce.io"
+      }
+    },
+    {
+      "name": "CyShield",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/cyshield/",
+        "facebook": "https://www.facebook.com/CyShield",
+        "website": "https://cyshield.com/"
+      }
+    },
+    {
+      "name": "IP-Protocol",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/ipprotocolinc/",
+        "facebook": "https://www.facebook.com/ipprotocolinc"
+      }
+    },
+    {
+      "name": "Zinad IT",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/zinad-security-and-software-services/",
+        "facebook": "https://www.facebook.com/ZINAD.IT/"
+      }
+    },
+    {
+      "name": "SecureNetworks",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/secure-networksco/about/",
+        "facebook": "https://www.facebook.com/Secure-Networks-114305643305740"
+      }
+    },
+    {
+      "name": "Cyber Force",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/cyber-force1/",
+        "facebook": "https://www.facebook.com/Team.CyberForce/"
+      }
+    },
+    {
+      "name": "FixedSolutions",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/fixed-solutions/",
+        "facebook": "https://www.facebook.com/fixedsolutions",
+        "website": "https://fixedmea.com/"
+      }
+    },
+    {
+      "name": "iSec",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/isec---information-security/",
+        "facebook": "https://www.facebook.com/isec.eg/"
+      }
+    },
+    {
+      "name": "iGRC2",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/igrc2/"
+      }
+    },
+    {
+      "name": "Spark",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/sparkps/",
+        "facebook": "https://www.facebook.com/Spark-Engineering-Consultants-101916022103199"
+      }
+    },
+    {
+      "name": "ConnectPS",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/connect-professional-services/",
+        "facebook": "https://www.facebook.com/CONNECT.PROFESSIONAL.SERVICES"
+      }
+    },
+    {
+      "name": "Raya IT",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/RayaInformationTechnology/",
+        "website": "https://raya-it.net/"
+      }
+    },
+    {
+      "name": "Hemaya IT",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/hemaya-it/"
+      }
+    },
+    {
+      "name": "SecureICIP",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/securicip/"
+      }
+    },
+    {
+      "name": "Corelia",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/coreliagroup/"
+      }
+    },
+    {
+      "name": "Infort",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/infort/"
+      }
+    },
+    {
+      "name": "Securenass",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/securenass/"
+      }
+    },
+    {
+      "name": "Resecurity",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/resecurity/"
+      }
+    },
+    {
+      "name": "PwC",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/pwc/"
+      }
+    },
+    {
+      "name": "Paymob",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/paymobcompany"
+      }
+    },
+    {
+      "name": "Maxab",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/maxab/"
+      }
+    },
+    {
+      "name": "Squnity",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/squnity/about/"
+      }
+    },
+    {
+      "name": "Nileict",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "website": "https://nileict.com"
+      }
+    },
+    {
+      "name": "SprintsAI",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/sprintsai/"
+      }
+    },
+    {
+      "name": "Fawry",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/fawrypayments/"
+      }
+    },
+    {
+      "name": "Security Scope",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "website": "https://www.securityscope.net"
+      }
+    },
+    {
+      "name": "Arrow Electronics",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "website": "https://www.arrow.com/"
+      }
+    },
+    {
+      "name": "RSA Security",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "website": "https://www.rsa.com"
+      }
+    },
+    {
+      "name": "IBM",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "website": "https://www.ibm.com/eg-en"
+      }
+    },
+    {
+      "name": "DeepStrike",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/deepstrike/"
+      }
+    },
+    {
+      "name": "BugSwagger",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/bugswagger/"
+      }
+    },
+    {
+      "name": "Cyber Ar LLC",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/cyberar/"
+      }
+    },
+    {
+      "name": "Dark Entry",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/darkentry"
+      }
+    },
+    {
+      "name": "WE INNOVATE",
+      "location": "Cairo, Egypt",
+      "logo": "",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/company/weinnovateme/"
+      }
+    }
+  ]
+}

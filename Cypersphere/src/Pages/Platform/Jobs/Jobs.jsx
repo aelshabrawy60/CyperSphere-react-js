@@ -5,117 +5,6 @@ import Company from '../../../Components/Platform/Company/Company'
 import CompaniesViewer from '../../../Components/Platform/CompaniesViewer/CompaniesViewer'
 import { FaBriefcase, FaBuilding } from 'react-icons/fa'
 
-// Dark mode color palette
-const darkTheme = {
-  surface: '#2d2d2d',
-  primary: '#3a86ff',
-  textPrimary: '#ffffff',
-  textSecondary: '#a0a0a0',
-  border: '#404040',
-  hover: '#353535',
-  badge: '#404040'
-}
-
-const styles = {
-  tabContainer: {
-    background: darkTheme.surface,
-    borderRadius: '12px',
-    padding: '8px',
-    margin: '0 15px 20px 15px',
-    boxShadow: '0 4px 6px rgba(0,0,0,0.2)',
-    border: `1px solid ${darkTheme.border}`
-  },
-  tabList: {
-    display: 'flex',
-    gap: '8px',
-    listStyle: 'none',
-    padding: 0,
-    margin: 0
-  },
-  tabButton: {
-    flex: 1,
-    width: '100%',
-    border: 'none',
-    padding: '12px',
-    borderRadius: '8px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '8px',
-    fontSize: '14px',
-    fontWeight: '500',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    background: 'transparent',
-    color: darkTheme.textSecondary,
-    '&:hover': {
-      background: darkTheme.hover
-    }
-  },
-  activeTab: {
-    background: darkTheme.primary,
-    color: darkTheme.textPrimary,
-    boxShadow: '0 2px 4px rgba(58, 134, 255, 0.2)'
-  },
-  icon: {
-    fontSize: '16px'
-  },
-  badge: {
-    background: darkTheme.badge,
-    color: darkTheme.textSecondary,
-    padding: '2px 8px',
-    borderRadius: '12px',
-    fontSize: '12px',
-    marginLeft: '4px'
-  },
-  contentContainer: {
-    background: darkTheme.background,
-    color: darkTheme.textPrimary
-  }
-}
-
-const cssStyles = `
-  .dark-mode-tab {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .dark-mode-tab::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .dark-mode-tab:hover::after {
-    opacity: 1;
-  }
-
-  .tab-content-transition {
-    transition: all 0.3s ease;
-  }
-
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .slide-in {
-    animation: slideIn 0.3s ease forwards;
-  }
-`
-
 function Jobs() {
   const [activeTab, setActiveTab] = useState('jobs');
   const [isLoading, setIsLoading] = useState(false);
@@ -125,66 +14,85 @@ function Jobs() {
   };
 
   return (
-    <div style={styles.contentContainer} className='mt-4'>
-      <style>{cssStyles}</style>
-      
+    <div className="mt-4 text-white px-5">
       {/* Enhanced Dark Mode Tabs for mobile view */}
-      <div className='d-lg-none' style={styles.tabContainer}>
-        <ul style={styles.tabList}>
-          <li style={{ flex: 1 }}>
-            <button 
-              className="dark-mode-tab"
-              style={{
-                ...styles.tabButton,
-                ...(activeTab === 'jobs' ? styles.activeTab : {})
-              }}
-              onClick={() => handleTabChange('jobs')}
-              disabled={isLoading}
-            >
-              <FaBriefcase style={styles.icon} />
-              <span>Jobs</span>
-              <span style={styles.badge}>42</span>
-              {isLoading && activeTab === 'jobs' && (
-                <div className="spinner-border spinner-border-sm ms-2" 
-                     style={{ color: darkTheme.textPrimary }} />
-              )}
-            </button>
-          </li>
-          <li style={{ flex: 1 }}>
-            <button 
-              className="dark-mode-tab"
-              style={{
-                ...styles.tabButton,
-                ...(activeTab === 'companies' ? styles.activeTab : {})
-              }}
-              onClick={() => handleTabChange('companies')}
-              disabled={isLoading}
-            >
-              <FaBuilding style={styles.icon} />
-              <span>Companies</span>
-              <span style={styles.badge}>15</span>
-              {isLoading && activeTab === 'companies' && (
-                <div className="spinner-border spinner-border-sm ms-2" 
-                     style={{ color: darkTheme.textPrimary }} />
-              )}
-            </button>
-          </li>
-        </ul>
+      <div className="lg:hidden mx-4 mb-5">
+        <div className="bg-[#2d2d2d] rounded-xl p-2 shadow-lg border border-[#404040]">
+          <ul className="flex gap-2">
+            <li className="flex-1">
+              <button 
+                className={`w-full px-3 py-3 rounded-lg flex items-center justify-center gap-2 text-sm font-medium transition-all duration-300 hover:bg-[#353535] group
+                  ${activeTab === 'jobs' 
+                    ? 'bg-[#3a86ff] text-white shadow-[0_2px_4px_rgba(58,134,255,0.2)]' 
+                    : 'text-[#a0a0a0]'
+                  }`}
+                onClick={() => handleTabChange('jobs')}
+                disabled={isLoading}
+              >
+                <FaBriefcase className="text-base" />
+                <span>Jobs</span>
+                <span className="px-2 py-0.5 rounded-full text-xs bg-[#404040] text-[#a0a0a0]">
+                  42
+                </span>
+                {isLoading && activeTab === 'jobs' && (
+                  <div className="ml-2 w-4 h-4 border-2 border-t-transparent rounded-full animate-spin" />
+                )}
+              </button>
+            </li>
+            <li className="flex-1">
+              <button 
+                className={`w-full px-3 py-3 rounded-lg flex items-center justify-center gap-2 text-sm font-medium transition-all duration-300 hover:bg-[#353535] group
+                  ${activeTab === 'companies' 
+                    ? 'bg-[#3a86ff] text-white shadow-[0_2px_4px_rgba(58,134,255,0.2)]' 
+                    : 'text-[#a0a0a0]'
+                  }`}
+                onClick={() => handleTabChange('companies')}
+                disabled={isLoading}
+              >
+                <FaBuilding className="text-base" />
+                <span>Companies</span>
+                <span className="px-2 py-0.5 rounded-full text-xs bg-[#404040] text-[#a0a0a0]">
+                  15
+                </span>
+                {isLoading && activeTab === 'companies' && (
+                  <div className="ml-2 w-4 h-4 border-2 border-t-transparent rounded-full animate-spin" />
+                )}
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div className='row m-0'>
-        <div 
-          className={`col-lg-8 col-12 ${activeTab === 'jobs' ? 'd-block slide-in' : 'd-none d-lg-block'}`}
-        >
+      <div className="grid lg:grid-cols-12 gap-4 mx-0">
+        <div className={`lg:col-span-8 ${
+          activeTab === 'jobs' 
+            ? 'block animate-[slideIn_0.3s_ease-out]' 
+            : 'hidden lg:block'
+        }`}>
           <JobsViewer/>
         </div>
 
-        <div 
-          className={`col-lg-4 ps-lg-0 col-12 ${activeTab === 'companies' ? 'd-block slide-in' : 'd-none d-lg-block'}`}
-        >
+        <div className={`lg:col-span-4 ${
+          activeTab === 'companies' 
+            ? 'block animate-[slideIn_0.3s_ease-out]' 
+            : 'hidden lg:block'
+        }`}>
           <CompaniesViewer/>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   )
 }
