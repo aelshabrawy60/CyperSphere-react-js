@@ -15,6 +15,8 @@ import TopBar from '../Components/Platform/TopBar/TopBar';
 import { useLocation } from 'react-router-dom';
 import Settings from '../Pages/Platform/Settings/Settings';
 import Profile from '../Pages/Platform/Profile/Profile';
+import ChatGroups from '../Pages/Platform/Groups/Groups';
+import ChatFeed from '../Pages/Platform/ChatFeed/ChatFeed';
 
 function AuthRoutes() {
   const location = useLocation();
@@ -38,6 +40,8 @@ function AuthRoutes() {
             <Route path="/chatbot" element={<Chatbot />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/groups" element={<ChatGroups />} />
+            <Route path="/chat_feed" element={<ChatFeed />} />
           </Routes>
         </div>
       </div>
