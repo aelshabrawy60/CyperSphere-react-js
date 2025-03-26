@@ -17,6 +17,7 @@ import { GoProjectRoadmap } from "react-icons/go";
 import { CgWebsite } from "react-icons/cg";
 import { LuVideo } from "react-icons/lu";
 import { VscTools } from "react-icons/vsc";
+import { icons, MessageCircle } from 'lucide-react';
 
 function Sidebar() {
   const location = useLocation();
@@ -46,6 +47,7 @@ function Sidebar() {
     { path: '/chatbot', icon: <BsChatDots />, label: 'Chatbot' },
     { path: '/profile', icon: <BsPerson />, label: 'Profile' },
     { path: '/settings', icon: <BsGear />, label: 'Settings' },
+    { path: '/groups', icons: <MessageCircle/>, label: 'Groups'}
   ];
 
   const academyMenuItems = [
