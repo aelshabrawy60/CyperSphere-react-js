@@ -33,7 +33,7 @@ function AuthRoutes() {
             <Route path="/companies" element={<Companies />} />
             <Route path="/learning-path" element={<LearningPath />} />
             <Route path="/platforms" element={<Platforms />} />
-            <Route path="/resources" element={<Resources />} />
+            <Route path="/academy/resources" element={<Resources />} />
             <Route path="/academy/tools" element={<Tools />} />
             <Route path="/ctf" element={<CTF />} />
             <Route path="/jobs" element={<Jobs />} />

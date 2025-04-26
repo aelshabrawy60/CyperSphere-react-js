@@ -1,8 +1,11 @@
 import React from 'react'
+import BookLibrary from '../../../../Components/Platform/Books/Books'
 
 function Resources() {
   return (
-    <div>Resources</div>
+    <div>
+      <BookLibrary/>
+    </div>
   )
 }
 
