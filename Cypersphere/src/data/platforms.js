@@ -7,7 +7,7 @@ export const platforms = [
   },
   {
     name: "Hack The Box",
-    url: "https://lnkd.in/dMZspV3w",
+    url: "https://www.hackthebox.com/",
     isPaid: false,
     note: "بها اقسام مدفوعة"
   },
@@ -23,7 +23,7 @@ export const platforms = [
   },
   {
     name: "OverTheWire",
-    url: "https://lnkd.in/daWUNuWh",
+    url: "https://overthewire.org/wargames",
     isPaid: false
   },
   {
@@ -73,12 +73,12 @@ export const platforms = [
   },
   {
     name: "CyberDefenders",
-    url: "https://lnkd.in/d-WhCyab",
+    url: "https://cyberdefenders.org",
     isPaid: false
   },
   {
     name: "Blueteamlabs",
-    url: "https://lnkd.in/dbAwFTVe",
+    url: "https://blueteamlabs.online",
     isPaid: false
   },
   {

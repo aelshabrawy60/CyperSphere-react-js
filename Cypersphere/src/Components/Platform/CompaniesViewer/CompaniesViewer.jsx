@@ -6,7 +6,7 @@ const companies = companiesData.companies
 
 function CompaniesViewer() {
   return (
-    <div className='bg-[#1D1D1F] rounded-[10px] p-3'>
+    <div className='bg-[#1D1D1F] rounded-[10px] p-3 h-screen overflow-y-scroll no-scroll-bar'>
         <div className='px-1 mb-2 flex flex-col md:flex-row gap-4 md:items-center md:justify-between'>
             <h5 className='font-bold'>Companies</h5>
         </div>
