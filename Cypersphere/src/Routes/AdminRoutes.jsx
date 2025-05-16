@@ -20,6 +20,9 @@ import ChatFeed from '../Pages/Platform/ChatFeed/ChatFeed';
 import AdminHome from '../Pages/Admin/AdminHome';
 import AdminBlogs from '../Pages/Admin/AdminBlogs';
 import BlogPage from '../Pages/Platform/Academy/BlogPage/BlogPage';
+import LevelPage from '../Pages/Platform/Academy/LearningPath/Level/LevelPage';
+import CoursePage from '../Pages/Platform/Academy/LearningPath/Course/CoursePage';
+import LessonPage from '../Pages/Platform/Academy/LearningPath/Lesson/LessonPage';
 
 function AdminRoutes() {
   const location = useLocation();
@@ -35,7 +38,10 @@ function AdminRoutes() {
             <Route path="/academy/blog" element={<AdminBlogs />} />
             <Route path="/academy/blog-post/:id" element={<BlogPage />} />
             <Route path="/companies" element={<Companies />} />
-            <Route path="/learning-path" element={<LearningPath />} />
+            <Route path="academy/learning-path" element={<LearningPath />} />
+            <Route path="academy/learning-path/level/:id" element={<LevelPage />} />
+            <Route path="academy/learning-path/course/:id" element={<CoursePage />} />
+            <Route path="academy/learning-path/lesson/:id" element={<LessonPage />} />
             <Route path="/platforms" element={<Platforms />} />
             <Route path="/academy/resources" element={<Resources />} />
             <Route path="/academy/tools" element={<Tools />} />

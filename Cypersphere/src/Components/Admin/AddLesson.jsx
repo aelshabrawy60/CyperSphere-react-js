@@ -1,20 +1,31 @@
-
 import React, { useState } from 'react';
 
-const AddLevel = ({onAdd, ParentId = null}) => {
+function AddLesson({ courseId, onSuccess }) {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
+    videoURL: '',
+    courseId: courseId || 0
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
+  // Update courseId in formData when prop changes
+  React.useEffect(() => {
+    setFormData(prev => ({ ...prev, courseId: courseId || 0 }));
+  }, [courseId]);
+
   const openModal = () => setIsOpen(true);
   const closeModal = () => {
     setIsOpen(false);
-    setFormData({ title: '', description: ''});
+    setFormData({
+      title: '',
+      description: '',
+      videoURL: '',
+      courseId: courseId || 0
+    });
     setError('');
     setSuccess('');
   };
@@ -23,41 +34,41 @@ const AddLevel = ({onAdd, ParentId = null}) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: name === 'parentLevelId' ? parseInt(value, 10) || 0 : value
+      [name]: name === 'courseId' ? parseInt(value, 10) || 0 : value
     }));
   };
 
   const handleSubmit = async () => {
+    // Validation
+    if (!formData.title.trim()) {
+      setError('Title is required');
+      return;
+    }
+
     setIsLoading(true);
     setError('');
     setSuccess('');
 
     try {
+      // Get auth token from local storage
       const token = localStorage.getItem('authToken');
-
+      
       if (!token) {
         throw new Error('Authentication token not found');
       }
 
-      // Build the request payload conditionally
-      const payload = {
-        title: formData.title,
-        description: formData.description,
-        ...(ParentId !== null && { parentLevelId: ParentId })
-      };
-
-      const response = await fetch('https://cybersphere7.runasp.net/api/Level', {
+      const response = await fetch('https://cybersphere7.runasp.net/api/Lesson/add-lesson', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
-          'Accept': 'application/json'
+          'Accept': '*/*'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(formData)
       });
 
       if (!response.ok) {
-        let errorMessage = 'Failed to add level';
+        let errorMessage = 'Failed to add lesson';
         try {
           const errorData = await response.json();
           errorMessage = errorData.message || errorMessage;
@@ -67,16 +78,34 @@ const AddLevel = ({onAdd, ParentId = null}) => {
         throw new Error(errorMessage);
       }
 
-      const result = await response.json();
-      setSuccess('Level added successfully!');
-      setFormData({ title: '', description: '' });
-
+      // Try to parse response if exists
+      try {
+        const result = await response.json();
+        console.log('Lesson added:', result);
+      } catch (e) {
+        // Response may not contain JSON
+        console.log('Lesson added successfully');
+      }
+      
+      setSuccess('Lesson added successfully!');
+      setFormData({
+        title: '',
+        description: '',
+        videoURL: '',
+        courseId: courseId || 0
+      });
+      
+      // Call onSuccess callback if provided
+      if (typeof onSuccess === 'function') {
+        onSuccess();
+      }
+      
+      // Close modal after 2 seconds on success
       setTimeout(() => {
         closeModal();
       }, 500);
-      onAdd();
     } catch (err) {
-      console.error('Error adding level:', err);
+      console.error('Error adding lesson:', err);
       if (err.message.includes('blocked by CORS policy')) {
         setError('CORS error: The API server is not allowing requests from this origin. Please contact your administrator.');
       } else {
@@ -87,15 +116,14 @@ const AddLevel = ({onAdd, ParentId = null}) => {
     }
   };
 
-
   return (
     <div className="text-white">
       {/* Button to open modal */}
       <button
         onClick={openModal}
-        className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
+        className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
       >
-        Add Level
+        Add Lesson
       </button>
 
       {/* Modal overlay */}
@@ -104,7 +132,7 @@ const AddLevel = ({onAdd, ParentId = null}) => {
           {/* Modal content */}
           <div className="bg-gray-900 rounded-lg w-full max-w-md p-6 shadow-xl">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-semibold text-white">Add New Level</h3>
+              <h3 className="text-xl font-semibold text-white">Add New Lesson</h3>
               <button
                 onClick={closeModal}
                 className="text-gray-400 hover:text-white"
@@ -125,8 +153,8 @@ const AddLevel = ({onAdd, ParentId = null}) => {
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full bg-gray-800 border border-gray-700 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                placeholder="Enter level title"
+                className="w-full bg-gray-800 border border-gray-700 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                placeholder="Enter lesson title"
               />
             </div>
 
@@ -139,9 +167,23 @@ const AddLevel = ({onAdd, ParentId = null}) => {
                 value={formData.description}
                 onChange={handleChange}
                 rows="3"
-                className="w-full bg-gray-800 border border-gray-700 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                placeholder="Enter level description"
+                className="w-full bg-gray-800 border border-gray-700 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                placeholder="Enter lesson description"
               ></textarea>
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-300 text-sm font-medium mb-2">
+                Video URL
+              </label>
+              <input
+                type="text"
+                name="videoURL"
+                value={formData.videoURL}
+                onChange={handleChange}
+                className="w-full bg-gray-800 border border-gray-700 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                placeholder="Enter video URL"
+              />
             </div>
 
             {/* Error message */}
@@ -168,7 +210,7 @@ const AddLevel = ({onAdd, ParentId = null}) => {
               <button
                 onClick={handleSubmit}
                 disabled={isLoading}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <span className="flex items-center">
@@ -186,6 +228,6 @@ const AddLevel = ({onAdd, ParentId = null}) => {
       )}
     </div>
   );
-};
+}
 
-export default AddLevel;
+export default AddLesson;
