@@ -1,9 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function BlogPost({ title, excerpt, author, date, category, image, tags }) {
+function BlogPost({ id, title, excerpt, author, date, category, image, tags, onDelete }) {
+  const navigate = useNavigate()
+  const isAdmin = localStorage.getItem('isAdmin') === 'true'
+  const authToken = localStorage.getItem('authToken')
+
+  const [deleting, setDeleting] = useState(false)
+
+  const handleClick = () => {
+    navigate(`/academy/blog-post/${id}`)
+  }
+
+  const handleDelete = async (e) => {
+    e.stopPropagation()
+    if (!authToken) {
+      alert('No auth token found.')
+      return
+    }
+
+    setDeleting(true)
+    try {
+      const response = await fetch(`https://cybersphere7.runasp.net/api/Article?id=${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+        },
+      })
+
+      if (response.ok) {
+        alert('Post deleted successfully.')
+        onDelete()
+        // Optional: refresh page or update state
+      } else {
+        alert('Failed to delete the post.')
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error)
+      alert('An error occurred.')
+    } finally {
+      setDeleting(false)
+    }
+  }
+
   return (
-    <div className="bg-[#1a202c] rounded-lg p-4 transition duration-200 hover:transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/30">
-      <div className="aspect-[3/2] w-full max-h-[120px] mb-3 overflow-hidden rounded-lg">
+    <div
+      onClick={handleClick}
+      className="cursor-pointer bg-[#1a202c] rounded-lg p-4 transition duration-200 hover:transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/30"
+    >
+      <div className="aspect-[3/2] w-full h-[150px] mb-3 overflow-hidden rounded-lg">
         <img 
           src={image} 
           alt={title} 
@@ -24,7 +69,7 @@ function BlogPost({ title, excerpt, author, date, category, image, tags }) {
         </p>
         <div className="flex justify-between items-center">
           <span className="text-[0.9rem] font-medium text-[#cbd5e0] transition-colors duration-300">{author}</span>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             {tags.map((tag, index) => (
               <span 
                 key={index} 
@@ -33,6 +78,15 @@ function BlogPost({ title, excerpt, author, date, category, image, tags }) {
                 {tag}
               </span>
             ))}
+            {isAdmin && (
+              <button 
+                onClick={handleDelete}
+                disabled={deleting}
+                className="ml-2 text-red-500 hover:text-red-700 text-xs underline disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {deleting ? 'Deleting...' : 'Delete'}
+              </button>
+            )}
           </div>
         </div>
       </div>

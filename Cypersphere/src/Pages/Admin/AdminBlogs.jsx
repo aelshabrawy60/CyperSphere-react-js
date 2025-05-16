@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import BlogPost from '../../../../Components/Platform/BlogPost/BlogPost';
-import AddBlogPost from '../../../../Components/Platform/AddBlogPost/AddBlogPost';
+import AddBlogPost from '../../Components/Platform/AddBlogPost/AddBlogPost';
+import BlogPost from '../../Components/Platform/BlogPost/BlogPost';
 
-function Blog() {
+function AdminBlogs() {
   const [searchQuery, setSearchQuery] = useState('');
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -91,6 +91,7 @@ function Blog() {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
+        <AddBlogPost onPostCreated={refreshPosts} onAdd={refreshPosts}/>
       </div>
       
       {loading ? (
@@ -130,7 +131,6 @@ function Blog() {
               category={post.category || "Article"}
               image={post.image}
               tags={post.tags || []}
-              onDelete={refreshPosts}
             />
           ))}
         </div>
@@ -139,4 +139,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default AdminBlogs;

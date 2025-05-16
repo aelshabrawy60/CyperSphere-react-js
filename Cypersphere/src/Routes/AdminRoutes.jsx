@@ -17,9 +17,11 @@ import Settings from '../Pages/Platform/Settings/Settings';
 import Profile from '../Pages/Platform/Profile/Profile';
 import ChatGroups from '../Pages/Platform/Groups/Groups';
 import ChatFeed from '../Pages/Platform/ChatFeed/ChatFeed';
+import AdminHome from '../Pages/Admin/AdminHome';
+import AdminBlogs from '../Pages/Admin/AdminBlogs';
 import BlogPage from '../Pages/Platform/Academy/BlogPage/BlogPage';
 
-function AuthRoutes() {
+function AdminRoutes() {
   const location = useLocation();
 
   return (
@@ -29,8 +31,9 @@ function AuthRoutes() {
         {location.pathname == "/" && <TopBar />}
         <div className='routes-content'>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/academy/blog" element={<Blog />} />
+            <Route path="/" element={<AdminHome />} />
+            <Route path="/academy/blog" element={<AdminBlogs />} />
+            <Route path="/academy/blog-post/:id" element={<BlogPage />} />
             <Route path="/companies" element={<Companies />} />
             <Route path="/learning-path" element={<LearningPath />} />
             <Route path="/platforms" element={<Platforms />} />
@@ -50,4 +53,4 @@ function AuthRoutes() {
   );
 }
 
-export default AuthRoutes;
+export default AdminRoutes;

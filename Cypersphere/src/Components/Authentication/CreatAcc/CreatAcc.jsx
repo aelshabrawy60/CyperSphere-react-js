@@ -1,17 +1,19 @@
 import React from 'react'
-
-import './CreatAcc.css'
 import SignupForm from '../SignupForm/SignupForm'
 import ThirdPartyAuth from '../ThirdPartyAuth/ThirdPartyAuth.jsx'
 
 function CreatAcc() {
   return (
-    <div className='creat-acc-contianer'>
-      <SignupForm/>
-      <div className='line__seprator mb-4 mt-4'>
-          <div></div>OR<div></div>
+    <div className="w-full max-w-md mx-auto">
+      <SignupForm />
+      
+      <div className="flex items-center my-4">
+        <div className="flex-grow h-px bg-gray-300"></div>
+        <span className="px-3 text-gray-500 text-sm font-medium">OR</span>
+        <div className="flex-grow h-px bg-gray-300"></div>
       </div>
-      <ThirdPartyAuth/>
+      
+      <ThirdPartyAuth />
     </div>
   )
 }

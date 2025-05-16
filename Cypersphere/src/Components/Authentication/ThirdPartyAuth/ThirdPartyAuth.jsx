@@ -1,20 +1,19 @@
 import React from 'react'
-
-import './ThirdPartyAuth.css'
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc"
+import { FaFacebook } from "react-icons/fa"
 
 function ThirdPartyAuth() {
   return (
-    <div className='thid-party-auth-container d-flex flex-column gap-3'>
-        <div className='google-auth thrid-party-agent justify-content-center d-flex gap-3 align-items-center'>
-            <FcGoogle />
-            <div>Continue with Google</div>
-        </div>
-        <div className='facebook-auth thrid-party-agent justify-content-center d-flex gap-3 align-items-center'>
-            <FaFacebook />
-            <div>Continue with Facebook</div>
-        </div>
+    <div className="flex flex-col gap-3">
+      <button className="flex items-center justify-center gap-3 border border-gray-700 rounded-full py-3 px-4 text-lg cursor-pointer hover:bg-gray-50 transition-colors">
+        <FcGoogle className="text-xl" />
+        <span>Continue with Google</span>
+      </button>
+      
+      <button className="flex items-center justify-center gap-3 border border-gray-700 rounded-full py-3 px-4 text-lg cursor-pointer hover:bg-gray-50 transition-colors">
+        <FaFacebook className="text-xl text-blue-600" />
+        <span>Continue with Facebook</span>
+      </button>
     </div>
   )
 }

@@ -8,7 +8,7 @@ import ResetPass from '../Pages/authentication/ResetPass/ResetPass';
 function GuestRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/" element={<SignIn />}/>
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/reset-password" element={<ResetPass />} />
