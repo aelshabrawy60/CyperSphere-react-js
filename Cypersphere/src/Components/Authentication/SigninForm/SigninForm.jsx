@@ -20,8 +20,9 @@ function SigninForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const storeTokenAndRole = (token) => {
+  const storeTokenAndRole = (token, expiration) => {
     localStorage.setItem('authToken', token);
+    localStorage.setItem('tokenExpiration', expiration);
     if (formData.email.toLowerCase() === 'admin@cybersphere.com') {
       localStorage.setItem('isAdmin', 'true');
     } else {
@@ -53,7 +54,7 @@ function SigninForm() {
 
       if (res.ok) {
         if (data.token) {
-          storeTokenAndRole(data.token);
+          storeTokenAndRole(data.token, data.expiration);
           window.location.href = '/';
         } else {
           setMessage(data.message || 'OTP required');
