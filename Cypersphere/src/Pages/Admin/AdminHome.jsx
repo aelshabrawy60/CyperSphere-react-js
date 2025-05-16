@@ -7,9 +7,7 @@ import AddLesson from '../../Components/Admin/AddLesson'
 function AdminHome() {
   return (
     <div>
-        <Levels/>
-        <AddCourse levelId={8}/>
-        <AddLesson courseId={1}/>
+        
     </div>
   )
 }
