@@ -94,26 +94,26 @@ function SigninForm() {
   };
 
   return (
-    <div className="w-full max-w-md">
+    <div className="w-full ">
       <h2 className="text-3xl font-medium mb-4">Sign in</h2>
 
       <form onSubmit={handleLogin}>
         <div className="flex flex-col mb-3">
-          <label className="text-sm font-medium text-gray-700 mb-1">Email address</label>
+          <label className="text-sm font-medium text-gray-300 mb-1">Email address</label>
           <input
             name="email"
             value={formData.email}
             onChange={handleChange}
             required
             type="text"
-            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             disabled={isLoading}
           />
         </div>
 
         <div className="flex flex-col mb-1">
           <div className="flex justify-between items-center mb-1">
-            <label className="text-sm font-medium text-gray-700">Your password</label>
+            <label className="text-sm font-medium text-gray-300">Your password</label>
             <button
               type="button"
               onClick={togglePasswordVisibility}
@@ -130,7 +130,7 @@ function SigninForm() {
             onChange={handleChange}
             required
             type={showPassword ? "text" : "password"}
-            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             disabled={isLoading}
           />
         </div>
@@ -174,7 +174,7 @@ function SigninForm() {
         </div>
 
         {!otpStage && (
-          <div className="w-1/2 mb-4 pr-3">
+          <div className="mb-4 pr-3">
             <button
               type="submit"
               className={`w-full px-4 py-2 mt-4 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}

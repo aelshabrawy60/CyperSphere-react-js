@@ -64,51 +64,51 @@ function SignupForm() {
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="flex flex-wrap -mx-2 gap-y-3">
           <div className="w-full px-2">
-            <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+            <label className="block text-sm font-medium text-gray-300 mb-1">Username</label>
             <input
               name="userName"
               value={formData.userName}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
           </div>
           <div className="w-full px-2">
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email address</label>
+            <label className="block text-sm font-medium text-gray-300 mb-1">Email address</label>
             <input
               name="email"
               type="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
 
           </div>
           <div className="w-full md:w-1/2 px-2">
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <label className="block text-sm font-medium text-gray-300 mb-1">Password</label>
             <input
               name="password"
               type="password"
               value={formData.password}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
 
           </div>
           <div className="w-full md:w-1/2 px-2">
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">Confirm your password</label>
+            <label className="block text-sm font-medium text-gray-300 mb-1">Confirm your password</label>
             <input
               name="confirmPassword"
               type="password"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
 
           </div>
@@ -121,7 +121,7 @@ function SignupForm() {
         <button
           type="submit"
           disabled={loading}
-          className="px-6 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-1/2"
+          className="px-6 w-full mt-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
           {loading ? 'Creating account...' : 'Create an account'}
         </button>

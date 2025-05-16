@@ -3,11 +3,11 @@ import AddLevel from '../../Components/Admin/AddLevel'
 import Levels from '../../Components/Platform/Levels/Levels'
 import AddCourse from '../../Components/Admin/AddCourse'
 import AddLesson from '../../Components/Admin/AddLesson'
+import StudentList from '../../Components/Admin/AlllStudents'
 
 function AdminHome() {
   return (
     <div>
-        
     </div>
   )
 }
