@@ -35,6 +35,7 @@ function SignupForm() {
         body: JSON.stringify(formData)
       });
 
+      console.log(formData)
       const text = await res.text();
 
       if (res.ok) {
@@ -42,7 +43,7 @@ function SignupForm() {
         setMessage(text);
         setTimeout(() => {
           navigate('/signin'); // Redirect after success
-        }, 1500);
+        }, 1000);
       } else {
         setMessage(text || 'Registration failed.');
       }

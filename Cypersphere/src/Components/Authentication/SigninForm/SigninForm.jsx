@@ -17,12 +17,17 @@ function SigninForm() {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-  const storeTokenAndRole = (token, expiration) => {
+    const storeTokenAndRole = (token, expiration) => {
     localStorage.setItem('authToken', token);
-    localStorage.setItem('tokenExpiration', expiration);
+    
+    // Make sure to store expiration if provided
+    if (expiration) {
+      localStorage.setItem('tokenExpiration', expiration);
+    }
+    
     if (formData.email.toLowerCase() === 'admin@cybersphere.com') {
       localStorage.setItem('isAdmin', 'true');
     } else {
@@ -72,26 +77,64 @@ function SigninForm() {
   };
 
   const handleVerifyOtp = async () => {
-    setIsOtpLoading(true);
-    try {
-      const url = `https://cybersphere7.runasp.net/api/Account/login-twofactor?code=${otp}&email=${encodeURIComponent(formData.email)}`;
-      const res = await fetch(url, {
-        method: 'POST',
-        headers: { 'accept': '*/*' },
-      });
-      const data = await res.json();
-      if (res.ok && data.token) {
-        storeTokenAndRole(data.token);
+  setIsOtpLoading(true);
+  try {
+    // Clean encoding of parameters
+    const encodedEmail = encodeURIComponent(formData.email);
+    const encodedOtp = encodeURIComponent(otp);
+    
+    const url = `https://cybersphere7.runasp.net/api/Account/login-twofactor?code=${encodedOtp}&email=${encodedEmail}`;
+    
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 
+        'accept': '*/*'
+      },
+      // Explicitly send an empty body as shown in the Swagger example
+      body: '',
+    });
+    
+    // Check content type to determine how to parse response
+    const contentType = res.headers.get('content-type');
+    let data;
+    
+    if (contentType && contentType.includes('application/json')) {
+      data = await res.json();
+    } else {
+      const text = await res.text();
+      // Try to parse as JSON if possible
+      try {
+        data = JSON.parse(text);
+      } catch {
+        data = { message: text };
+      }
+    }
+    
+    if (res.ok) {
+      if (data.token) {
+        // Make sure to include expiration if available
+        storeTokenAndRole(data.token, data.expiration);
         window.location.href = '/';
       } else {
-        setMessage('Invalid OTP. Please try again.');
+        setMessage('Login successful but no token received');
       }
-    } catch (err) {
-      setMessage('OTP verification failed.');
-    } finally {
-      setIsOtpLoading(false);
+    } else {
+      // Log more detailed error information for debugging
+      console.error('OTP verification failed:', {
+        status: res.status,
+        statusText: res.statusText,
+        data
+      });
+      setMessage(data.message || `Invalid OTP (Status ${res.status}). Please try again.`);
     }
-  };
+  } catch (err) {
+    console.error('OTP verification error:', err);
+    setMessage('OTP verification failed. Please try again.');
+  } finally {
+    setIsOtpLoading(false);
+  }
+};
+  
 
   return (
     <div className="w-full ">

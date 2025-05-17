@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Lessons from '../../../../../Components/Platform/Lessons/Lessons';
 import AddLesson from '../../../../../Components/Admin/AddLesson';
+import QuizComponent from '../../../../../Components/Platform/Quize/Quize';
 
 function CoursePage() {
   const { id } = useParams();
@@ -46,6 +47,7 @@ function CoursePage() {
       <h1 className="text-2xl font-bold mb-2">{courseData.title}</h1>
       <p className="mb-4 text-gray-400">{courseData.description}</p>
       <Lessons data={courseData.lessons || []} />
+      <QuizComponent title={courseData.title} description={courseData.description} lessons={courseData.lessons}/>
     </div>
   );
 }
