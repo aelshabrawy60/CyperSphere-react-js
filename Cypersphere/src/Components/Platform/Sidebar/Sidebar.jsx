@@ -51,7 +51,6 @@ function Sidebar() {
     { path: '/jobs', icon: <MdOutlineWorkOutline />, label: 'Jobs' },
     { path: '/chatbot', icon: <BsChatDots />, label: 'Chatbot' },
     { path: '/profile', icon: <BsPerson />, label: 'Profile' },
-    { path: '/settings', icon: <BsGear />, label: 'Settings' },
     { path: '/groups', icon: <MessageCircle />, label: 'Groups' },
   ];
 

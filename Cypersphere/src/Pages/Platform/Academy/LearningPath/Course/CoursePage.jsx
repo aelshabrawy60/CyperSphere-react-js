@@ -48,7 +48,7 @@ function CoursePage() {
       <h1 className="text-2xl font-bold mb-2">{courseData.title}</h1>
       <p className="mb-4 text-gray-400">{courseData.description}</p>
       <Lessons data={courseData.lessons || []} />
-      <QuizComponent title={courseData.title} description={courseData.description} lessons={courseData.lessons} courseId={courseData.id}/>
+      <QuizComponent title={courseData.title} description={courseData.description} lessons={courseData.lessons} courseId={courseData.id} studentId={6}/>
     </div>
   );
 }
