@@ -33,7 +33,7 @@ function AdminRoutes() {
       <div className='auth-routes-content' style={{ flex: 1, transition: 'margin 0.3s ease-in-out' }}>
         <div className='routes-content'>
           <Routes>
-            <Route path="/" element={<AdminHome />} />
+            <Route path="/" element={<LearningPath />} />
             <Route path="/academy/blog" element={<AdminBlogs />} />
             <Route path="/academy/blog-post/:id" element={<BlogPage />} />
             <Route path="/companies" element={<Companies />} />
