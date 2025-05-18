@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from 'react';
 
-export default function QuizComponent({title, description, lessons = null,  courseId = null}) {
+export default function QuizComponent({title, description, lessons = null, courseId = null, studentId = null}) {
   const [courseTitle, setCourseTitle] = useState(title);
   const [courseDescription, setCourseDescription] = useState(description);
   const [isLoading, setIsLoading] = useState(false);
@@ -12,6 +11,8 @@ export default function QuizComponent({title, description, lessons = null,  cour
   const [quizGenerated, setQuizGenerated] = useState(false);
   const [apiKey, setApiKey] = useState('AIzaSyB0RJ2qHWdJMcmnAIAlLJq8Awo66xuH21c');
   const [error, setError] = useState('');
+  const [completionStatus, setCompletionStatus] = useState(null);
+  const [completionLoading, setCompletionLoading] = useState(false);
 
   // Generate questions using Gemini AI API
   const generateQuestions = async () => {
@@ -24,9 +25,10 @@ export default function QuizComponent({title, description, lessons = null,  cour
     setError('');
     
     try {
+      const numberOfQuestions = lessons.length > 5 ? lessons : 5
       // Structure the prompt for Gemini to generate quiz questions
       const prompt = `
-        Generate 5 multiple-choice questions for a quiz on the following topic:
+        Generate ${numberOfQuestions} multiple-choice questions for a quiz on the following topic:
         
         Course Title: ${courseTitle}
         Course Description: ${courseDescription}
@@ -97,6 +99,7 @@ export default function QuizComponent({title, description, lessons = null,  cour
       setQuizSubmitted(false);
       setCurrentAnswers({});
       setScore(0);
+      setCompletionStatus(null);
     } catch (err) {
       console.error('Error generating questions:', err);
       setError(`Failed to generate questions: ${err.message}`);
@@ -115,6 +118,44 @@ export default function QuizComponent({title, description, lessons = null,  cour
     }));
   };
 
+  // Function to call the course completion API
+  const markCourseAsCompleted = async () => {
+    if (!studentId || !courseId) return;
+    
+    setCompletionLoading(true);
+    
+    try {
+      // Get auth token from localStorage
+      const authToken = localStorage.getItem('authToken');
+      
+      const response = await fetch(`https://cybersphere7.runasp.net/api/Progress/complete-course?studentId=${studentId}&courseId=${courseId}`, {
+        method: 'POST',
+        headers: {
+          'accept': '*/*',
+          'Authorization': authToken ? `Bearer ${authToken}` : ''
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setCompletionStatus({
+        success: true,
+        message: data.message || 'Course marked as completed successfully.'
+      });
+    } catch (err) {
+      console.error('Error marking course as completed:', err);
+      setCompletionStatus({
+        success: false,
+        message: `Failed to mark course as completed: ${err.message}`
+      });
+    } finally {
+      setCompletionLoading(false);
+    }
+  };
+
   const handleSubmitQuiz = () => {
     let newScore = 0;
     questions.forEach(question => {
@@ -125,6 +166,15 @@ export default function QuizComponent({title, description, lessons = null,  cour
     
     setScore(newScore);
     setQuizSubmitted(true);
+    
+    // Check if student passed the quiz (score >= 70%)
+    const passingThreshold = questions.length * 0.6;
+    const passed = newScore >= passingThreshold;
+    
+    // If studentId and courseId exist and student passed, mark course as completed
+    if (studentId && courseId && passed) {
+      markCourseAsCompleted();
+    }
   };
 
   const resetQuiz = () => {
@@ -133,6 +183,7 @@ export default function QuizComponent({title, description, lessons = null,  cour
     setCurrentAnswers({});
     setScore(0);
     setQuestions([]);
+    setCompletionStatus(null);
   };
 
   const getOptionClass = (questionId, optionIndex) => {
@@ -237,6 +288,25 @@ export default function QuizComponent({title, description, lessons = null,  cour
                    score >= questions.length * 0.5 ? 'Good effort! 👍' : 
                    'Keep practicing! 💪'}
                 </div>
+                
+                {/* Course completion status message */}
+                {completionStatus && (
+                  <div className={`mt-4 mb-4 p-3 rounded-lg ${completionStatus.success ? 'bg-green-900/50 border border-green-700 text-green-200' : 'bg-red-900/50 border border-red-700 text-red-200'}`}>
+                    {completionStatus.message}
+                  </div>
+                )}
+                
+                {/* Show loading indicator while API call is in progress */}
+                {completionLoading && (
+                  <div className="flex items-center justify-center mt-4 mb-4">
+                    <svg className="animate-spin h-5 w-5 text-blue-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Updating course progress...</span>
+                  </div>
+                )}
+                
                 <button
                   className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-6 py-3 transition duration-200"
                   onClick={() => {

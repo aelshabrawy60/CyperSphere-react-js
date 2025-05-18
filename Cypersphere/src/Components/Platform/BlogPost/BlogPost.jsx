@@ -5,7 +5,7 @@ import { Edit, Trash2, X, Check, Loader2 } from 'lucide-react';
 
 function BlogPost({ id, title, excerpt, author, date, category, image, tags, onDelete, onUpdate }) {
   const navigate = useNavigate();
-  const isAdmin = localStorage.getItem('isAdmin') === 'true';
+  const isAdmin = localStorage.getItem('isAdmin') === 'true'; //
   const authToken = localStorage.getItem('authToken');
   
   const [deleting, setDeleting] = useState(false);

@@ -6,6 +6,7 @@ function Levels({ initialLevels = null }) {
   const [loading, setLoading] = useState(initialLevels ? false : true);
   const [error, setError] = useState('');
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
   // Function to refresh the levels list
   const refreshLevels = () => {

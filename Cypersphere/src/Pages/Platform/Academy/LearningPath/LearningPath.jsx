@@ -6,14 +6,17 @@ import AddLevel from '../../../../Components/Admin/AddLevel'
 
 function LearningPath() {
 
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
+
   function onAdd(){
     window.location.reload()
   }
   return (
     <div className='p-4'>
-      <div className='mb-3'>
+      {isAdmin? <div className='mb-3'>
         <AddLevel onAdd={onAdd}/>
-      </div>
+      </div>: null}
+      
       <Levels/>
     </div>
   )

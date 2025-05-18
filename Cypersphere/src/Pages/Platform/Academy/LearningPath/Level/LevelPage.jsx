@@ -9,6 +9,7 @@ function LevelPage() {
   const { id } = useParams();
   const [levelData, setLevelData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
   useEffect(() => {
     async function fetchLevel() {
@@ -49,8 +50,9 @@ function LevelPage() {
   return (
     <div className="p-4">
       <div className='flex gap-2 mb-4'>
-        <AddLevel ParentId={levelData.id} onAdd={onAdd}/>
-        <AddCourse levelId={levelData.id}/>
+        {isAdmin? <><AddLevel ParentId={levelData.id} onAdd={onAdd}/>
+        <AddCourse levelId={levelData.id}/></>: null}
+        
       </div>
       <h1 className="text-2xl font-bold mb-2">{levelData.title}</h1>
       <p className="mb-4 text-gray-400">{levelData.description}</p>

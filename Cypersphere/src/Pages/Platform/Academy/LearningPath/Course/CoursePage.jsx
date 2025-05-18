@@ -8,6 +8,7 @@ function CoursePage() {
   const { id } = useParams();
   const [courseData, setCourseData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
   useEffect(() => {
     async function fetchCourse() {
@@ -42,12 +43,12 @@ function CoursePage() {
   return (
     <div className="p-4">
       <div className='mb-4'>
-        <AddLesson courseId={courseData.id}/>
+        {isAdmin? <AddLesson courseId={courseData.id}/>: null }
       </div>
       <h1 className="text-2xl font-bold mb-2">{courseData.title}</h1>
       <p className="mb-4 text-gray-400">{courseData.description}</p>
       <Lessons data={courseData.lessons || []} />
-      <QuizComponent title={courseData.title} description={courseData.description} lessons={courseData.lessons}/>
+      <QuizComponent title={courseData.title} description={courseData.description} lessons={courseData.lessons} courseId={courseData.id}/>
     </div>
   );
 }

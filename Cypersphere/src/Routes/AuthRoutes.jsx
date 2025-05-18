@@ -18,6 +18,9 @@ import Profile from '../Pages/Platform/Profile/Profile';
 import ChatGroups from '../Pages/Platform/Groups/Groups';
 import ChatFeed from '../Pages/Platform/ChatFeed/ChatFeed';
 import BlogPage from '../Pages/Platform/Academy/BlogPage/BlogPage';
+import LessonPage from '../Pages/Platform/Academy/LearningPath/Lesson/LessonPage';
+import CoursePage from '../Pages/Platform/Academy/LearningPath/Course/CoursePage';
+import LevelPage from '../Pages/Platform/Academy/LearningPath/Level/LevelPage';
 
 function AuthRoutes() {
   const location = useLocation();
@@ -31,8 +34,12 @@ function AuthRoutes() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/academy/blog" element={<Blog />} />
+            <Route path="/academy/blog-post/:id" element={<BlogPage />} />
             <Route path="/companies" element={<Companies />} />
-            <Route path="/learning-path" element={<LearningPath />} />
+            <Route path="academy/learning-path" element={<LearningPath />} />
+            <Route path="academy/learning-path/level/:id" element={<LevelPage />} />
+            <Route path="academy/learning-path/course/:id" element={<CoursePage />} />
+            <Route path="academy/learning-path/lesson/:id" element={<LessonPage />} />
             <Route path="/platforms" element={<Platforms />} />
             <Route path="/academy/resources" element={<Resources />} />
             <Route path="/academy/tools" element={<Tools />} />
