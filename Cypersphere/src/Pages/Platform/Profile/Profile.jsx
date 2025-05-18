@@ -22,7 +22,7 @@ const Profile = () => {
   const [skillError, setSkillError] = useState(null);
   
   // Student ID constant
-  const studentId = 6;
+  const studentId = localStorage.getItem('studentId');
 
   // Get auth token from local storage
   const getAuthToken = () => {
