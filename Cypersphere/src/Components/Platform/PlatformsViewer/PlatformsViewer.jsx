@@ -3,7 +3,7 @@ import PlatformCard from "../PlatformCard/PlatformCard";
 
 const PlatformsViewer = () => {
   return (
-    <div className="p-6 bg-gray-900 min-h-screen">
+    <div className="p-6 min-h-screen">
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-white mb-2">Learning Platforms</h2>
         <div className="flex gap-4">

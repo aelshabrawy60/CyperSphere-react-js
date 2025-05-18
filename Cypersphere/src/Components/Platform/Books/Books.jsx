@@ -297,20 +297,30 @@ function BookCard({ book }) {
   return (
     <div className="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full border border-gray-600">
       
-      <div className="p-4 flex flex-col flex-grow">
-        <h3 className="text-lg font-semibold mb-2">{name}</h3>
-        
-        <div className="mt-auto pt-4">
-          <a 
-            href={link} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center font-medium py-2 px-4 rounded transition-colors duration-300"
-          >
-            Download Book
-          </a>
-        </div>
-      </div>
+          <div className="relative">
+            <div className="bg-gradient-to-br from-blue-900 to-gray-900 h-24 flex items-center justify-center">
+              <svg className="w-12 h-12 text-blue-400 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+          </div>
+          <div className="p-4 h-full flex flex-col justify-between">
+            <h3 className="text-lg font-semibold mb-4 text-white">{name}</h3>
+            
+            <div className="flex items-center justify-between mt-4">
+              <a 
+                href={link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded flex items-center justify-center transition-colors duration-300"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                Download Book
+              </a>
+            </div>
+          </div>
     </div>
   );
 }

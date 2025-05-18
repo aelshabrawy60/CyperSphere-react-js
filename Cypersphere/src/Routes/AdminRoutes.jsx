@@ -31,7 +31,6 @@ function AdminRoutes() {
     <div className='auth-routes-container d-flex postion-relative'>
       <Sidebar />
       <div className='auth-routes-content' style={{ flex: 1, transition: 'margin 0.3s ease-in-out' }}>
-        {location.pathname == "/" && <TopBar />}
         <div className='routes-content'>
           <Routes>
             <Route path="/" element={<AdminHome />} />
