@@ -6,9 +6,7 @@ function ThirdPartyAuth() {
   };
 
   const handleFacebookAuth = () => {
-    // Facebook API endpoint would go here
-    // For now, we'll just alert since the Facebook endpoint wasn't provided
-    alert('Facebook authentication not implemented yet');
+    window.location.href = 'https://cybersphere7.runasp.net/api/Account/facebook-login';
   };
 
   return (
