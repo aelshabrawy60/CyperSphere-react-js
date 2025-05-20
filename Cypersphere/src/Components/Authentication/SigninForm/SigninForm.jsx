@@ -121,7 +121,8 @@ function SigninForm() {
     if (res.ok) {
       if (data.token) {
         // Make sure to include expiration if available
-        storeTokenAndRole(data.token, data.expiration);
+        const studentId = data.studentId? data.studentId : null
+        storeTokenAndRole(data.token, data.expiration, studentId);
         window.location.href = '/';
       } else {
         setMessage('Login successful but no token received');
