@@ -13,7 +13,7 @@ const TabButton = ({ isActive, onClick, children }) => (
   </button>
 );
 
-const EditProfile = ({ profile, onSave, onCancel }) => {
+const EditProfile = ({ profile, onSave, onCancel, studentId }) => {
   const [activeTab, setActiveTab] = useState('basic');
   const [formData, setFormData] = useState({
     firstName: profile.name?.split(' ')[0] || '',
@@ -130,10 +130,7 @@ const EditProfile = ({ profile, onSave, onCancel }) => {
       if (imageFile) {
         submitData.append('ImageFile', imageFile);
       }
-      
-      // StudentId is fixed at 6 as requested
-      const studentId = 6;
-      
+            
       // Make the API request
       const response = await fetch(`https://cybersphere7.runasp.net/api/Student/${studentId}`, {
         method: 'PUT',
@@ -143,6 +140,7 @@ const EditProfile = ({ profile, onSave, onCancel }) => {
         body: submitData
       });
       
+      console.log("response", response)
       if (!response.ok) {
         if (response.status === 401) {
           throw new Error('Unauthorized. Your session may have expired. Please log in again.');

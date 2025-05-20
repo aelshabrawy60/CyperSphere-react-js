@@ -339,6 +339,7 @@ const Profile = () => {
       {isEditing && (
         <EditProfile
           profile={profile}
+          studentId={studentId}
           onSave={(updatedProfile) => {
             setProfile(updatedProfile);
             setIsEditing(false);
