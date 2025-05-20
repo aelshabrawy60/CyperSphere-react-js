@@ -282,8 +282,7 @@ export default CometChatBuilderApp;
 const LoginPlaceholder = () => {
   return (
     <div className="login-placeholder">
-      <div className="cometchat-logo" />
-      <h3>This is where your website&apos;s login screen should appear.</h3>
+      <h3>logging</h3>
     </div>
   );
 };
