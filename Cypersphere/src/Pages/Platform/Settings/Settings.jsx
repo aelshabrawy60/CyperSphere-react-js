@@ -3,6 +3,7 @@ import FilterBar from '../../../Components/Platform/FilterBar/FilterBar';
 import AccountSet from './AccountSet/AccountSet';
 import GeneralSet from './GeneralSet/GeneralSet';
 import NotificationSet from './NotificationSet/NotificationSet';
+import AddGroup from '../../../Components/Admin/AddGroup';
 
 const Catogries = [
     {"name": "General", "component": <GeneralSet/>},
@@ -15,6 +16,7 @@ function Settings() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <AddGroup/>
       <div className="bg-white dark:bg-gray-800 shadow rounded-lg">
         <div className="p-4 border-b border-gray-200 dark:border-gray-700">
           <FilterBar 

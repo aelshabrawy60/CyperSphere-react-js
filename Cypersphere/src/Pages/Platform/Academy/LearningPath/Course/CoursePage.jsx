@@ -10,6 +10,7 @@ function CoursePage() {
   const [loading, setLoading] = useState(true);
   const isAdmin = localStorage.getItem('isAdmin') === 'true';
   const studentId = localStorage.getItem('studentId');
+  
   useEffect(() => {
     async function fetchCourse() {
       setLoading(true);

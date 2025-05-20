@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import EditProfile from '../../../Components/Platform/EditProfile/EditProfile';
 import Certificates from '../../../Components/Platform/Certficates/Certficates';
+import AddGroup from '../../../Components/Admin/AddGroup';
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
