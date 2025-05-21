@@ -21,6 +21,9 @@ import BlogPage from '../Pages/Platform/Academy/BlogPage/BlogPage';
 import LevelPage from '../Pages/Platform/Academy/LearningPath/Level/LevelPage';
 import CoursePage from '../Pages/Platform/Academy/LearningPath/Course/CoursePage';
 import LessonPage from '../Pages/Platform/Academy/LearningPath/Lesson/LessonPage';
+import PrivacyPolicy from '../Pages/PrivacyPolicy/PrivacyPolicy';
+import TermsOfService from '../Pages/TermsOfService/TermsOfService';
+import DeleteYourData from '../Pages/DeleteYourData/DeleteYourData';
 
 function AdminRoutes() {
   const location = useLocation();
@@ -49,6 +52,9 @@ function AdminRoutes() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/groups" element={<ChatGroups />} />
             <Route path="/chat_feed" element={<ChatFeed />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/delete-your-data" element={<DeleteYourData />} />
           </Routes>
         </div>
       </div>

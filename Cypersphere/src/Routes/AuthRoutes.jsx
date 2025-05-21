@@ -54,6 +54,7 @@ function AuthRoutes() {
             <Route path="/chat_feed" element={<ChatFeed />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/delete-your-data" element={<DeleteYourData />} />
           </Routes>
         </div>
       </div>

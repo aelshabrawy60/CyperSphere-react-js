@@ -6,6 +6,7 @@ import LandingPage from '../Pages/LandingPage/LandingPage';
 import ResetPass from '../Pages/authentication/ResetPass/ResetPass';
 import TermsOfService from '../Pages/TermsOfService/TermsOfService';
 import PrivacyPolicy from '../Pages/PrivacyPolicy/PrivacyPolicy';
+import DeleteYourData from '../Pages/DeleteYourData/DeleteYourData';
 
 function GuestRoutes() {
   return (
@@ -16,6 +17,7 @@ function GuestRoutes() {
       <Route path="/reset-password" element={<ResetPass />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
+      <Route path="/delete-your-data" element={<DeleteYourData />} />
     </Routes>
   );
 }
