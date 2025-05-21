@@ -23,6 +23,7 @@ import CoursePage from '../Pages/Platform/Academy/LearningPath/Course/CoursePage
 import LevelPage from '../Pages/Platform/Academy/LearningPath/Level/LevelPage';
 import PrivacyPolicy from '../Pages/PrivacyPolicy/PrivacyPolicy';
 import TermsOfService from '../Pages/TermsOfService/TermsOfService';
+import DeleteYourData from '../Pages/DeleteYourData/DeleteYourData';
 
 function AuthRoutes() {
   const location = useLocation();
