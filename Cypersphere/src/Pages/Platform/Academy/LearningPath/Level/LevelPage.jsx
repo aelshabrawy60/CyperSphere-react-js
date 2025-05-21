@@ -4,6 +4,7 @@ import Courses from '../../../../../Components/Platform/Courses/Courses';
 import Levels from '../../../../../Components/Platform/Levels/Levels'; // adjust path as needed
 import AddLevel from '../../../../../Components/Admin/AddLevel';
 import AddCourse from '../../../../../Components/Admin/AddCourse';
+import BackgroundParticles from '../../../../../Components/Platform/BackgroundParticles/BackgroundParticles';
 
 function LevelPage() {
   const { id } = useParams();
@@ -49,19 +50,25 @@ function LevelPage() {
 
   return (
     <div className="p-4">
-      <div className='flex gap-2 mb-4'>
-        {isAdmin? <><AddLevel ParentId={levelData.id} onAdd={onAdd}/>
-        <AddCourse levelId={levelData.id}/></>: null}
-        
-      </div>
-      <h1 className="text-2xl font-bold mb-2">{levelData.title}</h1>
-      <p className="mb-4 text-gray-400">{levelData.description}</p>
+      <BackgroundParticles/>
 
-      {hasSubLevels ? (
-        <Levels initialLevels={levelData.subLevels} />
-      ) : (
-        <Courses data={levelData.courses} />
-      )}
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <div className='flex gap-2 mb-4'>
+          {isAdmin? <><AddLevel ParentId={levelData.id} onAdd={onAdd}/>
+          <AddCourse levelId={levelData.id}/></>: null}
+          
+        </div>
+
+        <h1 className="text-2xl font-bold mb-2">{levelData.title}</h1>
+        <p className="mb-4 text-gray-400">{levelData.description}</p>
+
+
+        {hasSubLevels ? (
+          <Levels initialLevels={levelData.subLevels} />
+        ) : (
+          <Courses data={levelData.courses} />
+        )}
+      </div>
     </div>
   );
 }

@@ -22,6 +22,7 @@ function Sidebar() {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [isOpen, setIsOpen] = useState(!isMobile);
+  const [academyDropdownOpen, setAcademyDropdownOpen] = useState(location.pathname.startsWith('/academy'));
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,6 +35,11 @@ function Sidebar() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    // Set dropdown state based on current location
+    setAcademyDropdownOpen(location.pathname.startsWith('/academy'));
+  }, [location.pathname]);
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -44,9 +50,24 @@ function Sidebar() {
     window.location.href = '/';
   };
 
+  const handleAcademyClick = (e) => {
+    // Prevent default link behavior
+    e.preventDefault();
+    // Toggle the dropdown
+    setAcademyDropdownOpen(!academyDropdownOpen);
+    // Navigate to learning path
+    navigate('/academy/learning-path');
+  };
+
   const menuItems = [
     { path: '/', icon: <RiHome5Line />, label: 'Home' },
-    { path: '/academy', icon: <IoMdBook />, label: 'Academy' },
+    { 
+      path: '/academy/learning-path', 
+      icon: <IoMdBook />, 
+      label: 'Academy',
+      onClick: handleAcademyClick,
+      isDropdown: true
+    },
     { path: '/ctf', icon: <LuFlag />, label: 'CTF' },
     { path: '/jobs', icon: <MdOutlineWorkOutline />, label: 'Jobs' },
     { path: '/chatbot', icon: <BsChatDots />, label: 'Chatbot' },
@@ -77,20 +98,20 @@ function Sidebar() {
             <React.Fragment key={item.path}>
               <Link
                 to={item.path}
-                className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
+                className={`nav-item ${location.pathname === item.path || 
+                  (item.label === 'Academy' && location.pathname.startsWith('/academy')) ? 'active' : ''}`}
+                onClick={item.onClick}
               >
                 <span className="icon">{item.icon}</span>
                 <span className="label">{item.label}</span>
               </Link>
 
-              {location.pathname.startsWith('/academy') && item.path === '/academy' ? (
+              {item.isDropdown && academyDropdownOpen && (
                 <DropdownItem navs={academyMenuItems} open={true} />
-              ) : null}
+              )}
             </React.Fragment>
           ))}
         </nav>
-
-        
 
         <div className="logout">
           <div onClick={handleLogout} className="nav-item" style={{ cursor: 'pointer' }}>
@@ -109,7 +130,6 @@ function Sidebar() {
         </div>
       </div>
 
-      
       {isOpen && isMobile && (
         <div className="sidebar-overlay" onClick={toggleSidebar}></div>
       )}
