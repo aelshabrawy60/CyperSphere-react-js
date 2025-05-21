@@ -4,6 +4,8 @@ import SignIn from '../Pages/authentication/SignIn/SignIn';
 import SignUp from '../Pages/authentication/SignUp/SignUp';
 import LandingPage from '../Pages/LandingPage/LandingPage';
 import ResetPass from '../Pages/authentication/ResetPass/ResetPass';
+import TermsOfService from '../Pages/TermsOfService/TermsOfService';
+import PrivacyPolicy from '../Pages/PrivacyPolicy/PrivacyPolicy';
 
 function GuestRoutes() {
   return (
@@ -12,6 +14,8 @@ function GuestRoutes() {
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/reset-password" element={<ResetPass />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms-of-service" element={<TermsOfService />} />
     </Routes>
   );
 }

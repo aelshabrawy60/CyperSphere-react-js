@@ -88,9 +88,16 @@ function Sidebar() {
               ) : null}
             </React.Fragment>
           ))}
+
         </nav>
 
+        <div className='text-sm text-gray-400 mb-2'>
+            <Link to={'/privacy-policy'}  className='mb-1 text-gray-400'>Privacy Policy</Link>
+            <Link to={'/terms-of-service'} className='text-gray-400'>Terms of Services</Link>
+        </div>
+
         <div className="logout">
+          
           <div onClick={handleLogout} className="nav-item" style={{ cursor: 'pointer' }}>
             <span className="icon"><BiLogOut /></span>
             <span className="label">Logout</span>

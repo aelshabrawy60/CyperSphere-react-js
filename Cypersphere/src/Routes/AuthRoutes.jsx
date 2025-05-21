@@ -21,6 +21,8 @@ import BlogPage from '../Pages/Platform/Academy/BlogPage/BlogPage';
 import LessonPage from '../Pages/Platform/Academy/LearningPath/Lesson/LessonPage';
 import CoursePage from '../Pages/Platform/Academy/LearningPath/Course/CoursePage';
 import LevelPage from '../Pages/Platform/Academy/LearningPath/Level/LevelPage';
+import PrivacyPolicy from '../Pages/PrivacyPolicy/PrivacyPolicy';
+import TermsOfService from '../Pages/TermsOfService/TermsOfService';
 
 function AuthRoutes() {
   const location = useLocation();
@@ -50,6 +52,8 @@ function AuthRoutes() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/groups" element={<ChatGroups />} />
             <Route path="/chat_feed" element={<ChatFeed />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
           </Routes>
         </div>
       </div>
