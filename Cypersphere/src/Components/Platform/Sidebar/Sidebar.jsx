@@ -90,15 +90,7 @@ function Sidebar() {
           ))}
         </nav>
 
-        <div className="legal-links text-xs px-3 py-2 mb-2 border-t border-gray-700">
-          <div className="flex justify-center gap-1">
-            <Link to="/privacy-policy" className="text-gray-400 hover:text-gray-300 transition-colors">Privacy</Link>
-            <span className="text-gray-500">•</span>
-            <Link to="/terms-of-service" className="text-gray-400 hover:text-gray-300 transition-colors">Terms</Link>
-            <span className="text-gray-500">•</span>
-            <Link to="/delete-your-data" className="text-gray-400 hover:text-gray-300 transition-colors">Data</Link>
-          </div>
-        </div>
+        
 
         <div className="logout">
           <div onClick={handleLogout} className="nav-item" style={{ cursor: 'pointer' }}>
@@ -106,8 +98,18 @@ function Sidebar() {
             <span className="label">Logout</span>
           </div>
         </div>
+        <div className="legal-links text-xs px-3 py-2 border-gray-700">
+          <div className="flex gap-1">
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-gray-300 transition-colors">Privacy</Link>
+            <span className="text-gray-500">•</span>
+            <Link to="/terms-of-service" className="text-gray-400 hover:text-gray-300 transition-colors">Terms</Link>
+            <span className="text-gray-500">•</span>
+            <Link to="/delete-your-data" className="text-gray-400 hover:text-gray-300 transition-colors">Data</Link>
+          </div>
+        </div>
       </div>
 
+      
       {isOpen && isMobile && (
         <div className="sidebar-overlay" onClick={toggleSidebar}></div>
       )}
