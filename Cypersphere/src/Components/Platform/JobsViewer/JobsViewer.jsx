@@ -39,7 +39,7 @@ function JobsViewer() {
           <h5 className='font-bold'>Jobs</h5>
         </div>
         <div className="flex justify-center items-center min-h-[200px]">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" />
         </div>
       </div>
     )

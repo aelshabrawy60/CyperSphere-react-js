@@ -23,6 +23,7 @@ function Sidebar() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [isOpen, setIsOpen] = useState(!isMobile);
   const [academyDropdownOpen, setAcademyDropdownOpen] = useState(location.pathname.startsWith('/academy'));
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
   useEffect(() => {
     const handleResize = () => {
@@ -71,7 +72,7 @@ function Sidebar() {
     { path: '/ctf', icon: <LuFlag />, label: 'CTF' },
     { path: '/jobs', icon: <MdOutlineWorkOutline />, label: 'Jobs' },
     { path: '/chatbot', icon: <BsChatDots />, label: 'Chatbot' },
-    { path: '/profile', icon: <BsPerson />, label: 'Profile' },
+    ...(!isAdmin ? [{ path: '/profile', icon: <BsPerson />, label: 'Profile' }] : []),
     { path: '/groups', icon: <MessageCircle />, label: 'Groups' },
   ];
 
