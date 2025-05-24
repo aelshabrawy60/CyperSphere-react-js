@@ -4,6 +4,8 @@ import Lessons from '../../../../../Components/Platform/Lessons/Lessons';
 import AddLesson from '../../../../../Components/Admin/AddLesson';
 import QuizComponent from '../../../../../Components/Platform/Quize/Quize';
 import BackgroundParticles from '../../../../../Components/Platform/BackgroundParticles/BackgroundParticles';
+import MobileCourse from '../../../../../Components/Platform/MobileCourse/MobileCourse';
+import WebCourse from '../../../../../Components/Platform/MobileCourse/WebCourse';
 
 function CoursePage() {
   const { id } = useParams();
@@ -44,14 +46,16 @@ function CoursePage() {
 
   return (
     <div className="p-4">
-      <BackgroundParticles/>
+      {id == 3 || id == 21? null : <BackgroundParticles/>}
       <div style={{ position: 'relative', zIndex: 1 }}>
         <div className='mb-4'>
           {isAdmin? <AddLesson courseId={courseData.id}/>: null }
         </div>
         <h1 className="text-2xl font-bold mb-2">{courseData.title}</h1>
         <p className="mb-4 text-gray-400">{courseData.description}</p>
-        <Lessons data={courseData.lessons || []} />
+        {id == 3? <MobileCourse/> : null}
+        {id == 21? <WebCourse/> : null}
+        {id == 3 || id == 21? null : <Lessons data={courseData.lessons || []} />}
         <QuizComponent title={courseData.title} description={courseData.description} lessons={courseData.lessons} courseId={courseData.id} studentId={studentId}/>
       </div>
     </div>
