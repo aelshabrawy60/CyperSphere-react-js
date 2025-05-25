@@ -8,11 +8,13 @@ import TermsOfService from '../Pages/TermsOfService/TermsOfService';
 import PrivacyPolicy from '../Pages/PrivacyPolicy/PrivacyPolicy';
 import DeleteYourData from '../Pages/DeleteYourData/DeleteYourData';
 import CyberSphereAcademy from '../Pages/LandingPage/LandingPage';
+import CyberSphereHome from '../Pages/LandingPage/LandingPage2';
+import CyberSphereLanding from '../Pages/LandingPage/LandingPage2';
 
 function GuestRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<CyberSphereAcademy />}/>
+      <Route path="/" element={<CyberSphereLanding />}/>
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/reset-password" element={<ResetPass />} />
