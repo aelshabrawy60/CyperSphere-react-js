@@ -73,7 +73,7 @@ const CyberSphereLanding = () => {
 
       {/* Header */}
       <header className="fixed top-0 w-full p-5 bg-black/80 z-50 flex justify-start items-center">
-        <div className="font-sans font-bold text-3xl ml-5 text-purple-400" style={{ fontFamily: 'Orbitron, sans-serif', textShadow: '0 0 8px #A855F7' }}>
+        <div className="font-sans font-bold text-3xl ml-5 text-[#cbdde1]" style={{ fontFamily: 'Orbitron, sans-serif', textShadow: '0 0 8px #A855F7' }}>
           CyberSphere
         </div>
       </header>
@@ -92,7 +92,7 @@ const CyberSphereLanding = () => {
           <div className="p-5 text-left text-lg">
             <p className="mb-4">
               {'> '}
-              <span className="text-pink-400">{typedText}</span>
+              <span className="text-[#cbdde1]">{typedText}</span>
               <span className="animate-pulse">|</span>
             </p>
             <a href='/signin' 
