@@ -219,12 +219,6 @@ function SigninForm() {
           </div>
         )}
 
-        <div className="flex justify-end w-full mt-2">
-          <Link to="/reset-password" className="text-blue-600 hover:underline text-xs">
-            Forget your password?
-          </Link>
-        </div>
-
         {!otpStage && (
           <div className="mb-4 pr-3">
             <button
