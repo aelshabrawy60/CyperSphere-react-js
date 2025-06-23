@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import BlogPost from '../../../../Components/Platform/BlogPost/BlogPost';
-import AddBlogPost from '../../../../Components/Platform/AddBlogPost/AddBlogPost';
 
 function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -17,7 +16,7 @@ function Blog() {
         setError(null);
         
         const response = await fetch('https://cybersphere7.runasp.net/api/Article/get-all-articles');
-        
+        console.log("jjjjjjjj")
         if (!response.ok) {
           throw new Error('Failed to fetch articles');
         }

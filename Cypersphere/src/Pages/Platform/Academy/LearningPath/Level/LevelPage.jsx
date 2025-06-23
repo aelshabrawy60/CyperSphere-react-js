@@ -50,7 +50,6 @@ function LevelPage() {
 
   return (
     <div className="p-4">
-      <BackgroundParticles/>
 
       <div style={{ position: 'relative', zIndex: 1 }}>
         <div className='flex gap-2 mb-4'>

@@ -46,7 +46,6 @@ function CoursePage() {
 
   return (
     <div className="p-4">
-      {id == 3 || id == 21? null : <BackgroundParticles/>}
       <div style={{ position: 'relative', zIndex: 1 }}>
         <div className='mb-4'>
           {isAdmin? <AddLesson courseId={courseData.id}/>: null }

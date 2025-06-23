@@ -17,7 +17,6 @@ export default function QuizComponent({title, description, lessons = null, cours
   // Generate questions using Gemini AI API
   const generateQuestions = async () => {
     if (!apiKey) {
-      setError('Please enter your Gemini API key');
       return;
     }
     
